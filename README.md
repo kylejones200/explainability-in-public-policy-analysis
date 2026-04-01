@@ -1,13 +1,40 @@
-# Explainability in Public Policy Analysis
+# Public Policy Explainability with SHAP
 
-**Published:** 2025-05-25
-**Medium:** [https://medium.com/@kyle-t-jones/explainability-in-public-policy-analysis-5135e4dc1943](https://medium.com/@kyle-t-jones/explainability-in-public-policy-analysis-5135e4dc1943)
+This project demonstrates model explainability using SHAP (SHapley Additive exPlanations) for public policy analysis.
 
-## About
+## Project Structure
 
-Place the code for this article in this repository.
-The original article export is saved as `article.md`.
+```
+.
+├── README.md           # This file
+├── main.py            # Main entry point
+├── config.yaml        # Configuration file
+├── requirements.txt   # Python dependencies
+├── src/               # Core functions
+│   ├── core.py        # SHAP analysis functions
+│   └── plotting.py    # Tufte-style plotting utilities
+├── tests/             # Unit tests
+├── data/              # Data files
+└── images/            # Generated plots and figures
+```
 
-## Files
+## Configuration
 
-Add your `.ipynb`, `.py`, `.yaml`, `.js`, `.ts`, or other project files here.
+Edit `config.yaml` to customize:
+- Data source and target column
+- Model parameters (test size, n_estimators)
+- SHAP visualization options
+- Output settings
+
+## SHAP Analysis
+
+SHAP (SHapley Additive exPlanations) provides:
+- **Feature Importance**: Which features matter most
+- **Feature Effects**: How each feature affects predictions
+- **Individual Explanations**: Why specific predictions were made
+
+## Caveats
+
+- Requires a CSV file with a 'Disease_Risk' column (or configure target column in config).
+- SHAP computations can be slow for large datasets.
+- Model uses Random Forest by default; can be extended to other models.
