@@ -62,7 +62,7 @@ def main():
     if config['shap']['enabled']:
                 explainer, shap_values = compute_shap_values(model, X_test, X.columns.tolist())
         
-            save_shap_plots(explainer, shap_values, X_test, X.columns.tolist(), output_dir)
+    save_shap_plots(explainer, shap_values, X_test, X.columns.tolist(), output_dir)
     
     logging.info(f"\nAnalysis complete. Figures saved to {output_dir}")
 
