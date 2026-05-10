@@ -23,11 +23,12 @@ def load_data(data_path: Path) -> Tuple[pd.DataFrame, pd.Series]:
 
 def prepare_data(X: pd.DataFrame, y: pd.Series, test_size: float = 0.3, random_state: int = 42) -> Tuple:
     """Split and scale data."""
-    scaler = StandardScaler()
-    X_scaled = scaler.fit_transform(X)
     X_train, X_test, y_train, y_test = train_test_split(
-        X_scaled, y, test_size=test_size, random_state=random_state
+        X, y, test_size=test_size, random_state=random_state
     )
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    X_test = scaler.transform(X_test)
     return X_train, X_test, y_train, y_test, scaler
 
 def train_model(X_train: np.ndarray, y_train: pd.Series, n_estimators: int = 100, random_state: int = 42):

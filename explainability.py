@@ -10,9 +10,10 @@ logging.basicConfig(level=logging.INFO, format='%(message)s')
 data = pd.read_csv('public_health_data.csv')
 X = data.drop(columns=['Disease_Risk'])
 y = data['Disease_Risk']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
