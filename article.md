@@ -35,8 +35,8 @@ XAI translates complex mathematical models into human-understandable narratives,
 ### Why Use XAI in Public Policy?
 XAI enhances public policy analysis by making model decisions understandable to policymakers, stakeholders, and the public. It helps ensure accountability by enabling audits and reviews of policy decisions influenced by algorithms.
 
-- **Identifying Bias**: Detecting and mitigating biases in data and models, ensuring fairness.
-- **Improving Trust and Adoption**: Building confidence in predictive models by making them transparent and interpretable.
+- Identifying Bias: Detecting and mitigating biases in data and models, ensuring fairness.
+- Improving Trust and Adoption: Building confidence in predictive models by making them transparent and interpretable.
 
 ### Trade-offs: Accuracy vs. Interpretability
 There is often a trade-off between accuracy and interpretability. Complex models (e.g., deep neural networks, ensemble methods) provide high accuracy but are less interpretable, whereas simpler models (e.g., linear regression, decision trees) are more transparent but may have lower predictive power. XAI bridges this gap by explaining complex models without sacrificing accuracy.
@@ -46,26 +46,26 @@ Feature importance measures the contribution of each variable to the model's pre
 
 Popular methods include:
 
-- **Permutation Importance**: Measures the change in model accuracy when a feature is randomly shuffled.
-- **Tree-based Importance**: Measures the importance of features based on their usage in decision tree splits.
+- Permutation Importance: Measures the change in model accuracy when a feature is randomly shuffled.
+- Tree-based Importance: Measures the importance of features based on their usage in decision tree splits.
 
 ### SHAP (SHapley Additive exPlanations)
 SHAP values provide consistent, local explanations by calculating the marginal contribution of each feature to a specific prediction. Based on cooperative game theory, SHAP ensures:
 
-- **Fairness**: Each feature's contribution is weighted by all possible coalitions.
-- **Consistency**: If a feature's impact increases, its SHAP value does not decrease.
-- **Additivity**: The sum of SHAP values equals the model's prediction.
+- Fairness: Each feature's contribution is weighted by all possible coalitions.
+- Consistency: If a feature's impact increases, its SHAP value does not decrease.
+- Additivity: The sum of SHAP values equals the model's prediction.
 
 SHAP values provide:
 
-- **Local Explanations**: Explaining individual predictions for transparency.
-- **Global Explanations**: Aggregating SHAP values to understand model behavior across the dataset.
+- Local Explanations: Explaining individual predictions for transparency.
+- Global Explanations: Aggregating SHAP values to understand model behavior across the dataset.
 
 ### LIME (Local Interpretable Model-agnostic Explanations)
 LIME approximates complex models with interpretable local surrogate models, such as linear regression. It provides:
 
-- **Local Interpretability**: Explains individual predictions by approximating the model locally.
-- **Model-Agnostic Explanations**: Works with any black-box model, regardless of its architecture.
+- Local Interpretability: Explains individual predictions by approximating the model locally.
+- Model-Agnostic Explanations: Works with any black-box model, regardless of its architecture.
 
 ### Counterfactual Explanations
 Counterfactual explanations show how changes to inputs would alter the prediction. They answer "what-if" questions, helping policymakers understand causal relationships and design actionable interventions.
@@ -102,8 +102,8 @@ shap.summary_plot(shap_values[1], X_test, feature_names=X.columns)
 
 The summary plot shows:
 
-- **Feature Importance**: The most influential features on disease risk.
-- **Directionality**: Whether higher values increase or decrease risk.
+- Feature Importance: The most influential features on disease risk.
+- Directionality: Whether higher values increase or decrease risk.
 
 ### Local Explanations
 Local explanations provide personalized insights for individual cases.

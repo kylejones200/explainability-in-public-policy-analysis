@@ -29,9 +29,9 @@ Edit `config.yaml` to customize:
 ## SHAP Analysis
 
 SHAP (SHapley Additive exPlanations) provides:
-- **Feature Importance**: Which features matter most
-- **Feature Effects**: How each feature affects predictions
-- **Individual Explanations**: Why specific predictions were made
+- Feature Importance: Which features matter most
+- Feature Effects: How each feature affects predictions
+- Individual Explanations: Why specific predictions were made
 
 ## Caveats
 
