@@ -1,5 +1,9 @@
 # Public Policy Explainability with SHAP
 
+Published: yes
+Medium: [https://medium.com/@kyle-t-jones/explainability-in-public-policy-analysis-5135e4dc1943](https://medium.com/@kyle-t-jones/explainability-in-public-policy-analysis-5135e4dc1943)
+
+
 This project demonstrates model explainability using SHAP (SHapley Additive exPlanations) for public policy analysis.
 
 ## Project Structure
