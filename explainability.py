@@ -1,15 +1,14 @@
 import logging
 
 import pandas as pd
+import shap
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 
-def main():
-    # Configure logging
+def configure_logging() -> None:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
-
     data = pd.read_csv("public_health_data.csv")
     X = data.drop(columns=["Disease_Risk"])
     y = data["Disease_Risk"]
@@ -22,16 +21,27 @@ def main():
     model = RandomForestClassifier(n_estimators=100, random_state=42)
     model.fit(X_train, y_train)
 
-    # SHAP Analysis
-    import shap
 
+def prepare_explainer() -> None:
     explainer = shap.TreeExplainer(model)
     shap_values = explainer.shap_values(X_test)
     shap.summary_plot(shap_values[1], X_test, feature_names=X.columns)
-
     shap.force_plot(
-        explainer.expected_value[1], shap_values[1][0], X_test[0], feature_names=X.columns
+        explainer.expected_value[1],
+        shap_values[1][0],
+        X_test[0],
+        feature_names=X.columns,
     )
+
+
+def configure_logging_2() -> None:
+    configure_logging()
+
+    prepare_explainer()
+
+
+def main() -> None:
+    configure_logging_2()
 
 
 if __name__ == "__main__":
