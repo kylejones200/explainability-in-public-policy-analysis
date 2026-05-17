@@ -42,3 +42,11 @@ SHAP (SHapley Additive exPlanations) provides:
 - Requires a CSV file with a 'Disease_Risk' column (or configure target column in config).
 - SHAP computations can be slow for large datasets.
 - Model uses Random Forest by default; can be extended to other models.
+
+## Disclaimer
+
+Educational/demo code only. Not financial, safety, or engineering advice. Use at your own risk. Verify results independently before any production or operational use.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
