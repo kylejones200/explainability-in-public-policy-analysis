@@ -23,7 +23,7 @@ logging.basicConfig(
 )
 
 
-def load_config(config_path: Path = None) -> dict:
+def load_config(config_path: Path | None = None) -> dict:
     """Load configuration from YAML file."""
     if config_path is None:
         config_path = Path(__file__).parent / "config.yaml"
@@ -42,7 +42,6 @@ def main():
         "--output-dir", type=Path, default=None, help="Output directory for plots"
     )
     args = parser.parse_args()
-
     config = load_config(args.config)
     output_dir = (
         Path(args.output_dir)
@@ -50,17 +49,13 @@ def main():
         else Path(config["output"]["figures_dir"])
     )
     output_dir.mkdir(exist_ok=True)
-
     data_path = args.data_path if args.data_path else Path(config["data"]["source"])
     if not data_path.exists():
         raise FileNotFoundError(f"Data file not found: {data_path}")
-
         X, y = load_data(data_path)
-
         X_train, X_test, y_train, y_test, scaler = prepare_data(
             X, y, config["model"]["test_size"], config["model"]["random_state"]
         )
-
         model = train_model(
             X_train,
             y_train,
@@ -70,12 +65,10 @@ def main():
 
     accuracy = model.score(X_test, y_test)
     logging.info(f"Model accuracy: {accuracy:.4f}")
-
     if config["shap"]["enabled"]:
         explainer, shap_values = compute_shap_values(model, X_test, X.columns.tolist())
 
     save_shap_plots(explainer, shap_values, X_test, X.columns.tolist(), output_dir)
-
     logging.info(f"\nAnalysis complete. Figures saved to {output_dir}")
 
 

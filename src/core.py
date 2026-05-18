@@ -1,6 +1,5 @@
 """Core functions for public policy explainability using SHAP."""
 
-import logging
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -10,9 +9,6 @@ import shap
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-
-# Configure logging
-logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 
 def load_data(data_path: Path) -> tuple[pd.DataFrame, pd.Series]:
@@ -67,7 +63,6 @@ def save_shap_plots(
         facecolor="white",
     )
     plt.close()
-
     plt.savefig(
         output_dir / "shap_summary_bar.png",
         dpi=100,
