@@ -6,6 +6,14 @@ Medium: [https://medium.com/@kyle-t-jones/explainability-in-public-policy-analys
 
 This project demonstrates model explainability using SHAP (SHapley Additive exPlanations) for public policy analysis.
 
+## Business context
+
+Public policy decisions increasingly rely on complex machine learning models, from predicting economic trends to evaluating social programs and assessing regulatory impacts. These models provide powerful predictive capabilities but often operate as "black boxes," making it difficult to understand how they generate predictions. This lack of transparency undermines trust, accountability, and ethical decision-making, particularly when public welfare is at stake.
+
+Explainable Artificial Intelligence addresses this challenge by making machine learning models transparent and interpretable. Explainability techniques explain how models work, why they make specific predictions, and which factors influence outcomes the most. This enhances trust, improves accountability, and supports ethical decision-making, enabling policymakers to make informed, data-driven choices.
+
+This post explores the theoretical foundations of explainability and how to implement explainability tools in python for public policy analysis.
+
 ## Project Structure
 
 ```
